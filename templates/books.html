@@ -1,0 +1,24 @@
+<form method="POST" action="/search">
+    <label for="bookName">Book Name:</label>
+    <input type="text" id="bookName" name="bookName">
+    <label for="printType">Print Type:</label>
+    <select name="printType">
+        <option value="all">all</option>
+        <option value="books">books</option>
+        <option value="magazines">magazines</option>
+    </select>      
+    <button type="search">Search</button>
+</form>
+
+<head>
+    <title>BOOKS</title>
+</head>
+<body>
+    <h1>BOOKS</h1>
+    <ul>
+        {% for book in books %}
+        <li style="padding: 10px;">{{ book[0] }} - {{ ', '.join(book[1]) }}</li>
+        <img src= {{ book[2] }} alt="None">
+        {% endfor %}
+    </ul>
+</body>
